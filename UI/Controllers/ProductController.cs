@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Models.Common;
-using Models.Constant.ResponseMesssage;
+using Models.Constant.ResponseMessage;
 using Models.Product;
-using System.Net;
 using UI.Services.Refit;
 
 

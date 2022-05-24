@@ -3,15 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Models;
 using Models.Common;
+using Models.Constant.ResponseMessage;
 using Models.Product;
 using System.Linq.Dynamic.Core;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Models.Constant.ResponseMesssage;
 
 namespace BusinessLayer.Product
 {
