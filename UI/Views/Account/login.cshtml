@@ -2,50 +2,41 @@
 
 @{
     Layout = null;
+    var returnUrl = ViewData["ReturnUrl"] as string;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <base href="../../../">
     <title>Purchase Management System</title>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="canonical" href="https://preview.keenthemes.com/metronic8"/>
+    <link rel="shortcut icon" href="~/assets/media/logos/logo.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body id="kt_body" class="bg-body">
-<!--begin::Main-->
-<!--begin::Root-->
 <div class="d-flex flex-column flex-root">
-    <!--begin::Authentication - Sign-in -->
     <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(assets/media/illustrations/sketchy-1/14.png)">
-        <!--begin::Content-->
         <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
-            <!--begin::Logo-->
-            <a href="../../demo1/dist/index.html" class="mb-12">
-                <img alt="Logo" src="assets/media/logos/EkLogo.png" class="h-60px"/>
+            <a href="../" class="mb-12">
+                <img alt="Logo" src="~/assets/media/logos/EkLogo.png" class="h-60px"/>
             </a>
-            <!--end::Logo-->
-            <!--begin::Wrapper-->
             <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
-
-                <!--begin::Form-->
-                @{
-                    if (ViewData.ModelState.IsValid == false)
-                    {
-                        <div class="callout callout-danger">
-                            <div asp-validation-summary="All" class="text-danger"></div>
-                        </div>
-                    }
-                }
-                <form class="form w-100" asp-controller="Account" asp-action="Login" method="post">
+                <form class="form w-100" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="@returnUrl" method="post">
                     @Html.AntiForgeryToken()
                     <div class="text-center mb-10">
                         <h1 class="text-dark mb-3">Purchase Management System</h1>
                     </div>
-
+                    @{
+                        if (ViewData.ModelState.IsValid == false)
+                        {
+                            <div class="callout callout-danger">
+                                <div class="text-danger">@Html.ValidationMessage("Invalid")</div>
+                            </div>
+                        }
+                    }
                     <div class="fv-row mb-10">
                         <label class="form-label fs-6 fw-bolder text-dark">Username</label>
                         <input asp-for="UserName" class="form-control form-control-lg form-control-solid" type="text" autocomplete="off" autofocus/>
@@ -66,33 +57,40 @@
 
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-lg btn-primary w-100 mb-5">
-                            <span class="indicator-label">Continue</span>
+                        <button type="submit" class="btn btn-primary me-10" id="kt_button_1">
+                            <span class="indicator-label">
+                                Submit
+                            </span>
+                            <span class="indicator-progress">
+                                Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
                         </button>
                     </div>
                 </form>
-                <!--end::Form-->
             </div>
-            <!--end::Wrapper-->
         </div>
-        <!--end::Content-->
-      
     </div>
-    <!--end::Authentication - Sign-in-->
 </div>
-<!--end::Root-->
-<!--end::Main-->
-<!--begin::Javascript-->
-<script>let hostUrl = "assets/";</script>
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="assets/plugins/global/plugins.bundle.js"></script>
-<script src="assets/js/scripts.bundle.js"></script>
-<!--end::Global Javascript Bundle-->
+
+<script>
+// Element to indecate
+var button = document.querySelector("#kt_button_1");
+// Handle button click event
+button.addEventListener("click", function() {
+    // Activate indicator
+    button.setAttribute("data-kt-indicator", "on");
+    // Disable indicator after 3 seconds
+    setTimeout(function() {
+        button.removeAttribute("data-kt-indicator");
+    }, 10000);
+});
+</script>
+
+<script src="~/assets/plugins/global/plugins.bundle.js"></script>
+<script src="~/assets/js/scripts.bundle.js"></script>
 
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-<!--end::Javascript-->
 </body>
-<!--end::Body-->
 </html>

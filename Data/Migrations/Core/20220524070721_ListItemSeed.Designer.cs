@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations.Core
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220524070721_ListItemSeed")]
+    partial class ListItemSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,13 +88,13 @@ namespace Data.Migrations.Core
                         {
                             EmployeeId = "5b6cd63e-e6bb-4168-bb33-ae73952c716f",
                             Email = "superadmin@project.com",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5401), new TimeSpan(0, 0, 0, 0, 0)),
+                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8058), new TimeSpan(0, 0, 0, 0, 0)),
                             InsertPersonId = "1",
                             PasswordHash = "AQAAAAEAAYagAAAAECYRvg4UxADgEMkvzWBbZ7BzwVeMhe23Iu/Yc2XANppkQ3VwbLpWuwPjziLJHQfoyA==",
                             PersonId = "fc32092d-d2dc-4a6a-a0b0-a4a482d21c07",
                             PhoneNumber = "9841111111",
                             RoleId = "d0b3eab9-9f9d-45cc-95c0-b28fb7062868",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5402), new TimeSpan(0, 0, 0, 0, 0)),
+                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8058), new TimeSpan(0, 0, 0, 0, 0)),
                             UpdatePersonId = "1",
                             UserName = "superadmin"
                         },
@@ -100,13 +102,13 @@ namespace Data.Migrations.Core
                         {
                             EmployeeId = "test555-e6bb-4168-bb33-ae73952c716f",
                             Email = "test@mail.com",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5425), new TimeSpan(0, 0, 0, 0, 0)),
+                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8082), new TimeSpan(0, 0, 0, 0, 0)),
                             InsertPersonId = "1",
                             PasswordHash = "AQAAAAEAAYagAAAAECYRvg4UxADgEMkvzWBbZ7BzwVeMhe23Iu/Yc2XANppkQ3VwbLpWuwPjziLJHQfoyA==",
                             PersonId = "che32092d-d2dc-4a6a-a0b0-a4a482d21c07",
                             PhoneNumber = "984111111",
                             RoleId = "d0b3eab9-9f9d-45cc-95c0-b28fb7062868",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5425), new TimeSpan(0, 0, 0, 0, 0)),
+                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8082), new TimeSpan(0, 0, 0, 0, 0)),
                             UpdatePersonId = "1",
                             UserName = "Test"
                         });
@@ -117,25 +119,11 @@ namespace Data.Migrations.Core
                     b.Property<string>("ListItemId")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("InsertPersonId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("ListItemCategoryId")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ListItemName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("UpdatePersonId")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -152,42 +140,26 @@ namespace Data.Migrations.Core
                         new
                         {
                             ListItemId = "VTI-01",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5457), new TimeSpan(0, 0, 0, 0, 0)),
-                            InsertPersonId = "1",
                             ListItemCategoryId = "VT-01",
-                            ListItemName = "PAN",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5458), new TimeSpan(0, 0, 0, 0, 0)),
-                            UpdatePersonId = "1"
+                            ListItemName = "PAN"
                         },
                         new
                         {
                             ListItemId = "VTI-02",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5466), new TimeSpan(0, 0, 0, 0, 0)),
-                            InsertPersonId = "1",
                             ListItemCategoryId = "VT-01",
-                            ListItemName = "VAT",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5467), new TimeSpan(0, 0, 0, 0, 0)),
-                            UpdatePersonId = "1"
+                            ListItemName = "VAT"
                         },
                         new
                         {
                             ListItemId = "VSL-01",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5473), new TimeSpan(0, 0, 0, 0, 0)),
-                            InsertPersonId = "1",
                             ListItemCategoryId = "VS-01",
-                            ListItemName = "Active",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5474), new TimeSpan(0, 0, 0, 0, 0)),
-                            UpdatePersonId = "1"
+                            ListItemName = "Active"
                         },
                         new
                         {
                             ListItemId = "VSL-02",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5480), new TimeSpan(0, 0, 0, 0, 0)),
-                            InsertPersonId = "1",
                             ListItemCategoryId = "VS-01",
-                            ListItemName = "Inactive",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5480), new TimeSpan(0, 0, 0, 0, 0)),
-                            UpdatePersonId = "1"
+                            ListItemName = "Inactive"
                         });
                 });
 
@@ -196,21 +168,7 @@ namespace Data.Migrations.Core
                     b.Property<string>("ListCategoryId")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("InsertPersonId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("ListCategoryName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("UpdatePersonId")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -225,20 +183,12 @@ namespace Data.Migrations.Core
                         new
                         {
                             ListCategoryId = "VT-01",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5438), new TimeSpan(0, 0, 0, 0, 0)),
-                            InsertPersonId = "1",
-                            ListCategoryName = "Vendor Type",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5438), new TimeSpan(0, 0, 0, 0, 0)),
-                            UpdatePersonId = "1"
+                            ListCategoryName = "Vendor Type"
                         },
                         new
                         {
                             ListCategoryId = "VS-01",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5447), new TimeSpan(0, 0, 0, 0, 0)),
-                            InsertPersonId = "1",
-                            ListCategoryName = "Vendor Status",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5447), new TimeSpan(0, 0, 0, 0, 0)),
-                            UpdatePersonId = "1"
+                            ListCategoryName = "Vendor Status"
                         });
                 });
 
@@ -274,19 +224,19 @@ namespace Data.Migrations.Core
                         new
                         {
                             PersonId = "fc32092d-d2dc-4a6a-a0b0-a4a482d21c07",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5369), new TimeSpan(0, 0, 0, 0, 0)),
+                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8022), new TimeSpan(0, 0, 0, 0, 0)),
                             InsertPersonId = "1",
                             Name = "superadmin",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5370), new TimeSpan(0, 0, 0, 0, 0)),
+                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8023), new TimeSpan(0, 0, 0, 0, 0)),
                             UpdatePersonId = "1"
                         },
                         new
                         {
                             PersonId = "che32092d-d2dc-4a6a-a0b0-a4a482d21c07",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5414), new TimeSpan(0, 0, 0, 0, 0)),
+                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8070), new TimeSpan(0, 0, 0, 0, 0)),
                             InsertPersonId = "1",
                             Name = "Check",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5415), new TimeSpan(0, 0, 0, 0, 0)),
+                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(8070), new TimeSpan(0, 0, 0, 0, 0)),
                             UpdatePersonId = "1"
                         });
                 });
@@ -326,11 +276,11 @@ namespace Data.Migrations.Core
                         new
                         {
                             RoleId = "d0b3eab9-9f9d-45cc-95c0-b28fb7062868",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5173), new TimeSpan(0, 0, 0, 0, 0)),
+                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(7904), new TimeSpan(0, 0, 0, 0, 0)),
                             InsertPersonId = "1",
                             RoleName = "Super Admin",
                             RoleSystemName = "superadmin",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5180), new TimeSpan(0, 0, 0, 0, 0)),
+                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 7, 20, 602, DateTimeKind.Unspecified).AddTicks(7907), new TimeSpan(0, 0, 0, 0, 0)),
                             UpdatePersonId = "1"
                         });
                 });
@@ -340,21 +290,7 @@ namespace Data.Migrations.Core
                     b.Property<string>("VendorId")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("InsertPersonId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("TaxRegistrationNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("UpdatePersonId")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -385,11 +321,7 @@ namespace Data.Migrations.Core
                         new
                         {
                             VendorId = "V-01",
-                            InsertDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5491), new TimeSpan(0, 0, 0, 0, 0)),
-                            InsertPersonId = "1",
                             TaxRegistrationNumber = "123456789",
-                            UpdateDate = new DateTimeOffset(new DateTime(2022, 5, 24, 7, 28, 55, 489, DateTimeKind.Unspecified).AddTicks(5492), new TimeSpan(0, 0, 0, 0, 0)),
-                            UpdatePersonId = "1",
                             VendorName = "SK Suppliers",
                             VendorStatusListItem = "VSL-01",
                             VendorTypeListItem = "VTI-01"
