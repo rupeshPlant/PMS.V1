@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Entities.ListItem;
+using Entities.Product;
 using Entities.Vendor;
 using Microsoft.EntityFrameworkCore;
 using Models.Common.Authorization;
@@ -147,6 +148,7 @@ namespace Data
         public DbSet<Vendor> Vendor { get; set; }
         public DbSet<ListItemCategory> ListItemCategory { get; set; }
         public DbSet<ListItem> ListItem { get; set; }
+        public DbSet<Product> Product { get; set; }
         
     }
 }
