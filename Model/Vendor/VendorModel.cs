@@ -1,3 +1,5 @@
+using Models.Common;
+
 namespace Models.Vendor;
 
 public class VendorModel
@@ -7,4 +9,9 @@ public class VendorModel
     public string VendorTypeListItem { get; set; }
     public string VendorStatusListItem { get; set; }
     public string TaxRegistrationNumber { get; set; }
+}
+
+public class VendorDataTableModel : DataTableResponseModel<VendorModel>
+{
+
 }

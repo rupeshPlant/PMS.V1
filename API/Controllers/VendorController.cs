@@ -6,6 +6,7 @@ using BusinessLayer.Vendor;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.Common;
 using Models.Vendor;
 
 namespace API.Controllers
@@ -20,22 +21,29 @@ namespace API.Controllers
         {
             _iVendorService = iVendorService;
         }
+
         [HttpPost("VendorList")]
-        public async Task<List<VendorModel>> VendorList()
+        public async Task<VendorDataTableModel> VendorList(DataTableRequestModel model)
         {
-            return  await _iVendorService.VendorListAsync();
+            return await _iVendorService.VendorListAsync(model);
         }
-        
+
         [HttpPost("CreateVendor")]
         public async Task<ResponseMessageModel> CreateVendor(CreateVendorModel createVendorModel)
         {
-            return  await _iVendorService.CreateVendor(createVendorModel);
+            return await _iVendorService.CreateVendor(createVendorModel);
         }
-        
-        [HttpPost("EditVendor")]
-        public async Task<ResponseMessageModel> UpdateVendor(string Id, UpdateVendorModel editVendorModel)
+
+        [HttpPost("GetVendorId/{vendorId}")]
+        public async Task<UpdateVendorModel> GetVendorByIdAsync(string vendorId)
         {
-            return  await _iVendorService.UpdateVendor(Id, editVendorModel);
+            return await _iVendorService.GetVendorByIdAsync(vendorId);
+        }
+
+        [HttpPost("UpdateVendor")]
+        public async Task<ResponseMessageModel> UpdateVendor(UpdateVendorModel updateVendorModel)
+        {
+            return await _iVendorService.UpdateVendor(updateVendorModel);
         }
     }
 }

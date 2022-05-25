@@ -74,6 +74,7 @@ namespace Data
             {
                 ListCategoryId = "VT-01",
                 ListCategoryName = "Vendor Type",
+                ListCategorySystemName = "vendortype",
                 InsertDate = DateTimeOffset.UtcNow,
                 InsertPersonId = "1",
                 UpdateDate = DateTimeOffset.UtcNow,
@@ -83,6 +84,7 @@ namespace Data
             {
                 ListCategoryId = "VS-01",
                 ListCategoryName = "Vendor Status",
+                ListCategorySystemName = "vendorstatus",
                 InsertDate = DateTimeOffset.UtcNow,
                 InsertPersonId = "1",
                 UpdateDate = DateTimeOffset.UtcNow,
@@ -92,6 +94,7 @@ namespace Data
             {
                 ListItemId = "VTI-01",
                 ListItemName = "PAN",
+                ListItemSystemName = "pan",
                 ListItemCategoryId = "VT-01",
                 InsertDate = DateTimeOffset.UtcNow,
                 InsertPersonId = "1",
@@ -102,6 +105,7 @@ namespace Data
             {
                 ListItemId = "VTI-02",
                 ListItemName = "VAT",
+                ListItemSystemName = "vat",
                 ListItemCategoryId = "VT-01",
                 InsertDate = DateTimeOffset.UtcNow,
                 InsertPersonId = "1",
@@ -112,6 +116,7 @@ namespace Data
             {
                 ListItemId = "VSL-01",
                 ListItemName = "Active",
+                ListItemSystemName = "active",
                 ListItemCategoryId = "VS-01",
                 InsertDate = DateTimeOffset.UtcNow,
                 InsertPersonId = "1",
@@ -122,6 +127,7 @@ namespace Data
             {
                 ListItemId = "VSL-02",
                 ListItemName = "Inactive",
+                ListItemSystemName = "inactive",
                 ListItemCategoryId = "VS-01",
                 InsertDate = DateTimeOffset.UtcNow,
                 InsertPersonId = "1",

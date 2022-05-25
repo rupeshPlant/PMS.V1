@@ -9,4 +9,5 @@ public class ListItemCategory : BaseEntity
     [Key]
     public string ListCategoryId { get; set; }
     public string ListCategoryName { get; set; }
+    public string ListCategorySystemName { get; set; }
 }

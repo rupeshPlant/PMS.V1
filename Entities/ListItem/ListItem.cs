@@ -10,6 +10,7 @@ public class ListItem : BaseEntity
     [Key]
     public string ListItemId { get; set; }
     public string ListItemName { get; set; }
+    public string ListItemSystemName { get; set; }
     public string ListItemCategoryId { get; set; }
     [ForeignKey(nameof(ListItemCategoryId))]
     public ListItemCategory ListItemCategory { get; set; }

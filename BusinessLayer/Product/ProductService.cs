@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Models.Constant.ResponseMesssage;
+using Models.Constant.ResponseMessage;
 
 namespace BusinessLayer.Product
 {
@@ -203,7 +203,6 @@ namespace BusinessLayer.Product
                 _logger.LogError("Error while updating Product. Exception message: {Message}", ex.Message);
                 throw;
             }
-
         }
 
     }
