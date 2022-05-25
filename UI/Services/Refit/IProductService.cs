@@ -13,6 +13,6 @@ namespace UI.Services.Refit
         Task<HttpResponseMessage> GetAllProduct([Body] DataTableRequestModel model);
 
         [Post("/api/Product/GetAllProductForDropdown")]
-        Task<HttpResponseMessage> GetAllProductForDropdown();
+        Task<HttpResponseMessage> GetAllProductForDropdown();        
     }
 }

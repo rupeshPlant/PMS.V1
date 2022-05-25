@@ -1,5 +1,6 @@
 using BusinessLayer;
 using BusinessLayer.Employee;
+using BusinessLayer.Product;
 using BusinessLayer.Services;
 using BusinessLayer.Vendor;
 using Data;
@@ -20,6 +21,7 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IVendorService, VendorService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Models.Common;
 using Models.Constant.ResponseMessage;
 using Models.Product;
 using UI.Services.Refit;
@@ -69,5 +70,35 @@ namespace UI.Controllers
             }
         }
         #endregion
+
+        #region DataTable
+
+        [HttpPost]
+        public async Task<IActionResult> GetProductDTResult([FromForm] DataTableRequestModel model)
+        {
+            var searchValue = Request.Form["search[value]"].FirstOrDefault();
+            var sortColumn = model.SortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() +
+                                         "][name]"].FirstOrDefault();
+            var sortColumnDirection = model.SortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
+            model.SearchValue = searchValue;
+            model.SortColumn = sortColumn;
+            model.SortColumnDirection = sortColumnDirection;
+
+            var response = await _iProductService.GetAllProduct(model);
+            if (response.IsSuccessStatusCode)
+            {
+                var roles = await response.Content.ReadAsAsync<ProductDataTableModel>();
+                return Json(new
+                {
+                    draw = roles.Draw,
+                    recordsFiltered = roles.RecordsFiltered,
+                    recordsTotal = roles.RecordsTotal,
+                    data = roles.Data
+                });
+            }
+            return BadRequest();
+        }
+
+        #endregion DataTable
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Product;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.Common;
@@ -15,6 +16,7 @@ namespace API.Controllers
             _iProductService = iProductService;
         }
         [HttpPost("CreateProduct")]
+        [AllowAnonymous]
         public async Task<ResponseMessageModel> CreateProduct(CreateProductModel createProductModel)
         {
             return await _iProductService.CreateProductAsync(createProductModel);

@@ -3,32 +3,38 @@
 
 
 
-            <form class="form" asp-action="CreateProduct" asp-controller="Product" method="post">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label asp-for="ProductName">Product Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter product name" />
-                        <span class="form-text text-muted">Please enter product</span>
-                        <span asp-validation-for="ProductName" class="text-danger"></span>
-                    </div>
+<form class="form" asp-action="CreateProduct" asp-controller="Product" method="post">
+    <div class="card-body">
+        <div class="form-group">
+            <label asp-for="ProductName">Product Name:</label>
+            <input asp-for="ProductName" type="text" class="form-control" placeholder="Enter product name" />
+            <span class="form-text text-muted">Please enter product</span>
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
 
-                    <div class="separator separator-dashed my-5"></div>
+        <div class="separator separator-dashed my-5"></div>
 
-                    <div class="form-group">
-                        <label asp-for="ProductCode">Product Code:</label>
-                        <input type="email" class="form-control" placeholder="Enter email" />
-                        <span class="form-text text-muted">Product code must be unique</span>
-                        <span asp-validation-for="ProductName" class="text-danger"></span>
-                    </div>
+        <div class="form-group">
+            <label asp-for="ProductCode">Product Code:</label>
+            <input asp-for="ProductCode" type="text" class="form-control" placeholder="Enter poduct code" />
+            <span class="form-text text-muted">Product code must be unique</span>
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
 
-                    <div class="separator separator-dashed my-5"></div>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-                </div>
-            </form>
+        <div class="separator separator-dashed my-5"></div>
 
+        <select asp-for="ParentProductId" class="form-select" data-control="select2" asp-items="@ViewBag.product" data-placeholder="Select an option">
+                                                        <option value="@null">--Select--</option>
+
+        </select>
+
+        <div class="separator separator-dashed my-5"></div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
 
 
 

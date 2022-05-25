@@ -12,6 +12,8 @@
     <link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
     <link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        @RenderSection("styles", required: false)
+
 </head>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 <div class="d-flex flex-column flex-root">
@@ -58,6 +60,11 @@
                                     <div class="menu-item">
                                         <a class="menu-link  py-3" asp-controller="Home" asp-action="Index">
                                             <span class="menu-title">Home</span>
+                                        </a>
+                                    </div> 
+                                    <div class="menu-item">
+                                        <a class="menu-link  py-3" asp-controller="Product" asp-action="Index">
+                                            <span class="menu-title">Product</span>
                                         </a>
                                     </div>
                                 </div>
@@ -125,5 +132,8 @@
 <script src="~/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
 <script src="~/assets/js/custom/utilities/modals/create-app.js"></script>
 <script src="~/assets/js/custom/utilities/modals/users-search.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

@@ -14,7 +14,7 @@ namespace BusinessLayer.Product
         private readonly DataContext _context;
         private readonly ILogger<ProductService> _logger;
 
-        public ProductService(DataContext context,ILogger<ProductService> logger)
+        public ProductService(DataContext context, ILogger<ProductService> logger)
         {
             _context = context;
             _logger = logger;
@@ -111,11 +111,11 @@ namespace BusinessLayer.Product
             try
             {
                 var product = await (from p in _context.Product
-                              select new ProductModel
-                              {
-                                  ProductId = p.ProductId,
-                                  ProductName = p.ProductName,
-                              }).ToListAsync();
+                                     select new ProductModel
+                                     {
+                                         ProductId = p.ProductId,
+                                         ProductName = p.ProductName,
+                                     }).ToListAsync();
 
                 return product;
             }
@@ -131,14 +131,14 @@ namespace BusinessLayer.Product
             try
             {
                 var product = await (from p in _context.Product
-                                             where p.ProductId == productId.ToString()
-                                             select new UpdateProductModel
-                                             {
-                                                 ProductId = p.ProductId,
-                                                 ProductName = p.ProductName,
-                                                 ProductCode = p.ProductCode,
-                                                 ParentProductId = p.ParentProductId
-                                             }).SingleOrDefaultAsync();
+                                     where p.ProductId == productId.ToString()
+                                     select new UpdateProductModel
+                                     {
+                                         ProductId = p.ProductId,
+                                         ProductName = p.ProductName,
+                                         ProductCode = p.ProductCode,
+                                         ParentProductId = p.ParentProductId
+                                     }).SingleOrDefaultAsync();
 
                 if (product != null)
                 {
@@ -195,6 +195,35 @@ namespace BusinessLayer.Product
             catch (Exception ex)
             {
                 _logger.LogError("Error while updating Product. Exception message: {Message}", ex.Message);
+                throw;
+            }
+
+        }
+
+        public async Task<ResponseMessageModel> DeleteProductAsync(int productId)
+        {
+            try
+            {
+                var product = await _context.Product.FindAsync(productId);
+
+                if (product != null)
+                {
+                    _context.Product.Remove(product);
+                    await _context.SaveChangesAsync();
+
+                    return new ResponseMessageModel()
+                     {
+                        ResponseMessage = ResponseMessage.ProductDeletedSuccessfully
+                     };
+                }
+                return new ResponseMessageModel()
+                {
+                    ResponseMessage = ResponseMessage.ProductIdNotValid
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error while deleting Company Rate. Exception message: {Message}", ex.Message);
                 throw;
             }
 
